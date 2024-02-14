@@ -2,18 +2,39 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Mission : MonoBehaviour{
+namespace DemonViglu.MissionSystem {
+    public class Mission : MonoBehaviour {
 
-    public MissionState missionState;
+        public MissionState missionState;
 
-    public int missionId = -1;
+        public int missionId = -1;
 
-    public List<int> preMissionIDs;
+        public List<int> preMissionIDs;
 
-    public int requestNum;
+        [Tooltip("Request Number in the mission")]
+        [SerializeField] private int _requestNum;
 
-    public int rewardNum;
+        [SerializeField] private int _rewardNum;
 
-    [TextArea]
-    public string description;
+        [SerializeField] private bool _isNumPush;
+
+        public bool canAutoAvailable;
+
+        public bool isAchievement;
+
+
+
+
+        public int currentMissionNum = 0;
+        public int requestNum { get { return _requestNum; } private set { } }
+        public int rewardNum { get { return _rewardNum; } private set { } }
+        public bool isNumPush { get { return _isNumPush; } private set { } }
+
+
+
+        public string title;
+        public string content;
+        [TextArea]
+        public string description;
+    }
 }
